@@ -1,0 +1,6 @@
+const SETUP={
+timeSetup:1000,
+fileName:'twitter-names.txt',
+selector:'div.css-901oao.css-bfa6kz.r-9ilb82.r-18u37iz.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0'
+};
+clear();console.info('%cSTARTING - lay back and wait until it finishes. The script will try and collect all the names from the page and download it as a txt file. It scrolls in every '+Number.parseFloat(SETUP.timeSetup/1000).toPrecision(2)+' seconds. You can change this by changeing the timeSetup variable. Slower internet connection might need a slower scroll.',"color:green");var collection=[],tags,item,lastOne,lastNow,aTag;let collect=setInterval(()=>{tags=document.querySelectorAll(SETUP.selector);lastOne=tags[tags.length-4].outerText;for(i=1;i<tags.length-3;i+=1){item=tags[i].outerText;if(collection.includes(item)){continue}collection.push(item)}if(lastOne!=lastNow){lastNow=lastOne;window.scrollBy(0,window.innerHeight)}else{console.log('%cSUCCESS: collecting names done - creating file','color:green');clearInterval(collect);aTag=document.createElement("a");aTag.href=window.URL.createObjectURL(new Blob([collection.join("\r\n")],{type:'text/txt'}));aTag.download=SETUP.fileName;aTag.click();console.log('%cSUCCESS: file created','color:green');console.log('Raw output: ');console.log(collection)}},SETUP.timeSetup);
