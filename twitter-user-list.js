@@ -32,16 +32,17 @@
 * SETUP 
 */
 
+// change the setup in this. Mind the comma at the end of the first two setting!
 const SETUP = {
-	// the timer
-	timeSetup:1000, // in milliseconds. It will scroll down to load more followers in every second by default.
+	// the timer in milliseconds. It will scroll down to load more followers in every second by default.
+	timeSetup: 1000, 
 
 	// file name
-	fileName:'twitter-names.txt',
+	fileName: 'twitter-names.txt',
 
 	// the selector
 	// if Twitter changes this, you have to find what selector keeps the names.
-	selector:'div.css-901oao.css-bfa6kz.r-9ilb82.r-18u37iz.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0'
+	selector: 'div.css-901oao.css-bfa6kz.r-9ilb82.r-18u37iz.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0'
 };			
 
 clear();
@@ -75,20 +76,16 @@ let collect = setInterval(() => {
 		console.log('%cSUCCESS: collecting names done - creating file','color:green');
 		
 		clearInterval(collect);
-		
-		
+			
 		aTag = document.createElement("a");
 		aTag.href = window.URL.createObjectURL(new Blob([collection.join("\r\n")], {type: 'text/txt'}));
 		aTag.download = SETUP.fileName;
-		
 		aTag.click();
-		
 		
 		console.log('%cSUCCESS: file created','color:green');
 		console.log('Raw output: ');
 		console.log(collection);
-		
-		
+				
 	}
 	
 }, SETUP.timeSetup);
