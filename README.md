@@ -25,7 +25,7 @@ need slower scrolling, so the followers / followed people have time to load in.
 ## The more you know:
 	
 	These days Twitter hides your padlock followers you do not follow back. So they will be not in
-	the list. You can see those on mobil.
+	the list. You can see those on mobile.
   
 ## Setup
 
