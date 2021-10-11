@@ -10,7 +10,7 @@ ones.
 
 ## How to use it?
 
-Just copy all of this code in the console of your browser, and press enter. You can open the 
+Just copy all of [this code](https://github.com/akosnikhazy/twitter-follower-list/blob/main/twitter-user-list.js) in the console of your browser, and press enter. You can open the 
 console by pressing F12 or CTRL + SHIFT + I key combination.
 
 You will see the console tab, in theory it is selected by default, if not select it. 
