@@ -31,3 +31,7 @@ need slower scrolling, so the followers / followed people have time to load in.
 
 You can change properties of the SETUP object. The comments in twitter-user-list.js will help you with them.
 You can change the time it scrolls to load new names, the file name and the selector that represents the names. The later can change based on what Twitter change in the future. I will not update it if I do not use it. It works today (2021. oct. 11.)
+
+# min version
+
+Also you can use the [minified version](https://github.com/akosnikhazy/twitter-follower-list/blob/main/twitter-user-list-min.js). I exposed the setup object though so you can easily modify it.
