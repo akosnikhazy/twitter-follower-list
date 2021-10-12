@@ -41,22 +41,30 @@ const SETUP = {
 	fileName: 'twitter-names.txt',
 
 	// the selector
-	// if Twitter changes this, you have to find what selector keeps the names.
+	// if Twitter changes this, you have to find what selector keeps the names. Search for one that repeats for user names, and has the
+	// "outerText" value containing the name. Easiest way is rightclicking on a name and checking the HTML highlighted there.
 	selector: 'div.css-901oao.css-bfa6kz.r-9ilb82.r-18u37iz.r-37j5jr.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0'
 };			
 
+/* 
+* Do not change anything after this. Exception be in the cases of twitter changing their layout. Read the comments.
+*/
+
 clear();
+
 console.info('%cSTARTING - lay back and wait until it finishes. The script will try and collect all the names from the page and download it as a txt file. It scrolls in every ' + Number.parseFloat(SETUP.timeSetup/1000).toPrecision(2) + ' seconds. You can change this by changeing the timeSetup variable. Slower internet connection might need a slower scroll.',"color:green");	
+
 var collection = [],tags,item,lastOne,lastNow,aTag;	
+
 let collect = setInterval(() => {
 	
 	tags = document.querySelectorAll(SETUP.selector);
 	
-	lastOne = tags[tags.length-4].outerText // the last name in the list we are checking righ now, we need this so we can stop if there is no new last one
+	lastOne = tags[tags.length-4].outerText;
 	
 	for(i = 1; i< tags.length-3; i++)
-	{ // the first one is you, from your profile selector, the last 3 is the "who to follow" part of the page
-	  // if twitter changes layout you might want to change the numbers.
+	{ // the first one is you, from your profile selector, the last 3 is the "who to follow" part of the page.
+	  // if twitter changes layout you might want to change the numbers. For example if twitter would delete the who to follow box you might want tags.lenght without the -3
 		
 		item = tags[i].outerText;
 		
@@ -73,7 +81,7 @@ let collect = setInterval(() => {
 	} 
 	else
 	{ // we are at the bottom, presumably we have the list
-		console.log('%cSUCCESS: collecting names done - creating file','color:green');
+		console.info('%cSUCCESS: collecting names done - creating file','color:green');
 		
 		clearInterval(collect);
 			
@@ -82,8 +90,8 @@ let collect = setInterval(() => {
 		aTag.download = SETUP.fileName;
 		aTag.click();
 		
-		console.log('%cSUCCESS: file created','color:green');
-		console.log('Raw output: ');
+		console.info('%cSUCCESS: file created','color:green');
+		console.info('Raw output:');
 		console.log(collection);
 				
 	}
