@@ -25,6 +25,10 @@
 *		These days Twitter hides your padlock followers you do not follow back. So they will be not in
 *		the list. You can see those on mobil.
 *
+*	Other use:
+*		https://twitter.com/settings/blocked/all
+*		You can save your blocked account list with this, so you can block them on other accounts too.
+*
 */
 
 
